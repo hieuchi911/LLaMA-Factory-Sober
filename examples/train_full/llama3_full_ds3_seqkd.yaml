@@ -16,7 +16,7 @@ overwrite_cache: true
 preprocessing_num_workers: 16
 
 ### output
-output_dir: saves/llama3-8b/full/sft
+output_dir: saves/llama3-8b/full/seqkd
 logging_steps: 4
 save_steps: 0.3
 plot_loss: true
@@ -33,7 +33,7 @@ ddp_timeout: 180000000
 report_to: wandb
 
 ### eval
-eval_dataset: cnn_dailymail_val
+eval_dataset: cnn_dailymail_val,cnn_dailymail_val_seqkd
 per_device_eval_batch_size: 4
 eval_strategy: steps
 eval_steps: 0.2
