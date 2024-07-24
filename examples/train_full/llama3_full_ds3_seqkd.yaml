@@ -9,7 +9,7 @@ finetuning_type: full
 deepspeed: examples/deepspeed/ds_z3_config.json
 
 ### dataset
-dataset: cnn_dailymail_train
+dataset: cnn_dailymail_train_seqkd
 template: alpaca
 cutoff_len: 1024
 overwrite_cache: true
