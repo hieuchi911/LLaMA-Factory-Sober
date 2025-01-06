@@ -1,6 +1,6 @@
 {
   "cnn_dailymail_train": {
-      "file_name": "/home/zihaoh/repos/i-am-sober/processed_data/cnn_dailymail/full-1024-512/llama/train.json",
+      "file_name": "/home1/hieutn/cs566/i-am-sober/processed_data/cnn_dailymail/full-1024-512/llama/train.json",
       "formatting": "alpaca",
       "columns": {
           "prompt": "instruction",
@@ -17,8 +17,32 @@
           "response": "output"
       }
   },
+  "dolly_train": {
+      "file_name": "/home1/hieutn/cs566/i-am-sober/processed_data/dolly/full-1024-512/llama2/train.json",
+      "formatting": "alpaca",
+      "columns": {
+          "prompt": "instruction",
+          "query": "input",
+          "response": "output"
+      }
+  },
+  "dolly_val": {
+      "file_name": "/home1/hieutn/cs566/i-am-sober/processed_data/dolly/full-1024-512/llama2/valid.json",
+      "formatting": "alpaca",
+      "columns": {
+          "prompt": "instruction",
+          "query": "input",
+          "response": "output"
+      }
+  },
+  "dolly_train_llama31": {
+      "file_name": "/home1/hieutn/cs566/i-am-sober/processed_data/dolly/full-1024-512/llama3.1/train.json"
+  },
+  "dolly_val_llama31": {
+      "file_name": "/home1/hieutn/cs566/i-am-sober/processed_data/dolly/full-1024-512/llama3.1/valid.json"
+  },
   "cnn_dailymail_train_seqkd": {
-      "file_name": "/home/zihaoh/repos/i-am-sober/processed_data/cnn_dailymail/full-1024-512/llama/train-seqkd.json",
+      "file_name": "/home1/hieutn/cs566/i-am-sober/processed_data/cnn_dailymail/full-1024-512/llama/train-seqkd.json",
       "formatting": "alpaca",
       "columns": {
           "prompt": "instruction",

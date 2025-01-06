@@ -1,0 +1,29 @@
+### model
+# model_name_or_path: /project/lerman_316/hieutn/ckps-lf/llama3-8b/full/seqkd-bs4/checkpoint-1690/
+# model_name_or_path: meta-llama/Llama-2-7b-chat-hf
+model_name_or_path: /project/lerman_316/hieutn/results-llama3.1-llama-factory/sft/checkpoint-4290 # /project/lerman_316/hieutn/results-llama3.1-kd/e3-bs4-lr1e-05-G1-N4-NN1-kd0.1/1428/ #meta-llama/Meta-Llama-3-8B-Instruct
+
+### method
+stage: sft
+do_predict: true
+finetuning_type: full
+
+### dataset
+eval_dataset: cnn_dailymail_val
+template: llama3
+cutoff_len: 1024
+# max_samples: 50
+overwrite_cache: true
+preprocessing_num_workers: 16
+
+### output
+output_dir: saves/llama3.1-sft-checkpoint-4290/full/predict
+overwrite_output_dir: true
+
+### eval
+per_device_eval_batch_size: 16
+predict_with_generate: true
+do_sample: false
+top_k: 0
+top_p: 1.0
+temperature: 1.0

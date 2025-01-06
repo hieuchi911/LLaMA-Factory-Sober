@@ -1,0 +1,102 @@
+### model
+model_name_or_path: meta-llama/Llama-3.1-8B-Instruct
+
+### method
+stage: sft
+do_train: true
+do_eval: true
+# do_predict: true
+finetuning_type: full
+deepspeed: examples/deepspeed/ds_z3_config.json
+
+### dataset
+dataset: dolly_train_llama31
+template: llama3
+cutoff_len: 1024
+max_samples: 10
+overwrite_cache: true
+preprocessing_num_workers: 16
+
+### output
+output_dir: /project/lerman_316/hieutn/results-llama3.1-llama-factory/sft-to-be-deleted
+logging_steps: 4
+save_steps: 0.3
+plot_loss: true
+overwrite_output_dir: true
+
+### train
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 1
+learning_rate: 1.0e-5
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+bf16: true
+ddp_timeout: 180000000
+report_to: wandb
+
+### eval
+eval_dataset: dolly_val_llama31
+per_device_eval_batch_size: 8
+# predict_with_generate: true
+eval_strategy: steps
+eval_steps: 0.1
+
+# PRETRAINED
+# {
+#     "predict_bleu-4": 30.938889648437502,
+#     "predict_rouge-1": 39.2442560546875,
+#     "predict_rouge-2": 13.9985140625,
+#     "predict_rouge-l": 25.288440234375,
+#     "predict_runtime": 98.7761,
+#     "predict_samples_per_second": 10.124,
+#     "predict_steps_per_second": 0.324
+# }
+
+
+# SFT main (==SFT-checkpoint-4290):
+# {                                                     # { # SFT-bug
+#     "predict_bleu-4": 25.453347265625,                #     "predict_bleu-4": 24.01435537109375,
+#     "predict_model_preparation_time": 0.0031,         #     "predict_model_preparation_time": 0.003,
+#     "predict_rouge-1": 36.79959580078125,             #     "predict_rouge-1": 37.474925097656254,
+#     "predict_rouge-2": 14.32359541015625,             #     "predict_rouge-2": 13.96314765625,
+#     "predict_rouge-l": 25.25790419921875,             #     "predict_rouge-l": 24.83176484375,
+#     "predict_runtime": 112.5061,                      #     "predict_runtime": 92.0836,
+#     "predict_samples_per_second": 8.888,              #     "predict_samples_per_second": 10.86,
+#     "predict_steps_per_second": 0.284                 #     "predict_steps_per_second": 0.348
+# }                                                     # }
+
+# SFT-checkpoint-1287:
+# {
+#     "predict_bleu-4": 17.85464150390625,
+#     "predict_model_preparation_time": 0.0031,
+#     "predict_rouge-1": 34.36874951171875,
+#     "predict_rouge-2": 13.60238798828125,
+#     "predict_rouge-l": 24.129833203125003,
+#     "predict_runtime": 79.4718,
+#     "predict_samples_per_second": 12.583,
+#     "predict_steps_per_second": 0.403
+# }
+
+# SFT-checkpoint-2574:
+# {
+#     "predict_bleu-4": 20.54123505859375,
+#     "predict_model_preparation_time": 0.0031,
+#     "predict_rouge-1": 35.40113232421875,
+#     "predict_rouge-2": 13.75259111328125,
+#     "predict_rouge-l": 24.4347197265625,
+#     "predict_runtime": 94.6847,
+#     "predict_samples_per_second": 10.561,
+#     "predict_steps_per_second": 0.338
+# }
+
+# SFT-checkpoint-3861:
+# {
+#     "predict_bleu-4": 26.914047363281252,
+#     "predict_model_preparation_time": 0.0031,
+#     "predict_rouge-1": 37.344737890625,
+#     "predict_rouge-2": 14.620517480468749,
+#     "predict_rouge-l": 25.61238310546875,
+#     "predict_runtime": 125.7372,
+#     "predict_samples_per_second": 7.953,
+#     "predict_steps_per_second": 0.254
+# }
